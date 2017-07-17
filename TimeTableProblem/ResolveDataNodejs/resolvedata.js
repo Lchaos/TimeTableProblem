@@ -7,7 +7,7 @@ function toPlaceID(data) {
 		return data.grade - 1;
 	}
 	else {
-		return data.grade + data.senkou - 2;
+		return data.grade + data.profession - 2;
 	}
 }
 
@@ -67,13 +67,13 @@ console.log("1");
 for (var index = 0; index < 5; index++) {
 	initInterestData(index);
 	console.log("Place"+index);
-	initMap(function (c) { return c.gakki == 1 });
+	initMap(function (c) { return c.semester == 1 });
 	ShowMap();
 	console.log();
-	initMap(function (c) { return c.gakki == 2 });
+	initMap(function (c) { return c.semester == 2 });
 	ShowMap();
 	console.log();
-	initMap(function (c) { return c.gakki == 3 });
+	initMap(function (c) { return c.semester == 3 });
 	ShowMap();
 	console.log();
 }

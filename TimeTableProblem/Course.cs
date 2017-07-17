@@ -8,13 +8,13 @@ namespace TimeTableProblem
         // public int grade{get;set;}
         // public int length{get;set;}
         // public int compilsory{get;set;}
-        // public int senkou{get;set;}
-        // public int continue_gakki{get;set;}
+        // public int profession{get;set;}
+        // public int continue_semester{get;set;}
         // public int lecture{get;set;}
         // public int experiment{get;set;}
         // public int computer_room{get;set;}
         // public string teacher_code{get;set;}
-        public int gakki { get; set; }
+        public int semester { get; set; }
         public int day { get; set; }
         public int koma { get; set; }
     }
@@ -26,8 +26,8 @@ namespace TimeTableProblem
         public int grade { get; set; }
         public int length { get; set; }
         public int compilsory { get; set; }
-        public int senkou { get; set; }
-        public int continue_gakki { get; set; }
+        public int profession { get; set; }
+        public int continue_semester { get; set; }
         public int lecture { get; set; }
         public int experiment { get; set; }
         public int computer_room { get; set; }
@@ -55,12 +55,12 @@ namespace TimeTableProblem
             }
             else
             {
-                return grade + senkou - 2;
+                return grade + profession - 2;
             }
         }
         public bool IsSameCourse(Course setting)
         {
-            return setting.name == this.name && setting.grade == this.grade && setting.senkou == this.senkou;
+            return setting.name == this.name && setting.grade == this.grade && setting.profession == this.profession;
         }
 
         public void From(Course c)
@@ -71,8 +71,8 @@ namespace TimeTableProblem
             this.grade = c.grade;
             this.length = c.length;
             this.compilsory = c.compilsory;
-            this.senkou = c.senkou;
-            this.continue_gakki = c.continue_gakki;
+            this.profession = c.profession;
+            this.continue_semester = c.continue_semester;
             this.lecture = c.lecture;
             this.experiment = c.experiment;
             this.computer_room = c.computer_room;

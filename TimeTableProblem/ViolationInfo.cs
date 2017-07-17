@@ -3,12 +3,12 @@ namespace TimeTableProblem
     public class ViolationInfo
     {
         internal int Violation;
-        internal int tuunenn;
-        internal int renzoku;
-        internal int hiruyasumi;
+        internal int continueYear;
+        internal int continued;
+        internal int crossLanchTime;
         internal int order;
         internal int compilsory;
-        internal int six;
+        internal int sixthCourse;
         internal int channel;
         internal int grade;
         internal int days;
@@ -17,12 +17,12 @@ namespace TimeTableProblem
         public void set(ViolationInfo s)
         {
                     Violation=s.Violation;
-        tuunenn=s.tuunenn;
-        renzoku=s.renzoku;
-        hiruyasumi=s.hiruyasumi;
+        continueYear=s.continueYear;
+        continued=s.continued;
+        crossLanchTime=s.crossLanchTime;
         order=s.order;
         compilsory=s.compilsory;
-        six=s.six;
+        sixthCourse=s.sixthCourse;
         channel=s.channel;
         grade=s.grade;
         days=s.days;
@@ -30,28 +30,28 @@ namespace TimeTableProblem
         public void reset()
         {
             Violation = 0;
-            tuunenn = 0;
-            renzoku = 0;
-            hiruyasumi = 0;
+            continueYear = 0;
+            continued = 0;
+            crossLanchTime = 0;
             order = 0;
             compilsory = 0;
-            six = 0;
+            sixthCourse = 0;
             channel = 0;
             grade = 0;
             days = 0;
         }
         public void Count()
         {
-            //Violation += 10 * tuunenn;
-            Violation += 2 * hiruyasumi;
+            //Violation += 10 * continueYear;
+            Violation += 2 * crossLanchTime;
             Violation += 2 * compilsory;
             Violation += 10 * grade;
-            Violation += six;
+            Violation += sixthCourse;
             Violation += 3 * channel;
-            //Violation += 10 * tuunenn;
+            //Violation += 10 * continueYear;
         }
 
-        #region MyRegion
+        #region for serilized
         public int violation
         {
             get
@@ -65,42 +65,42 @@ namespace TimeTableProblem
             }
         }
 
-        public int Tuunenn
+        public int ContinueYear
         {
             get
             {
-                return tuunenn;
+                return continueYear;
             }
 
             set
             {
-                tuunenn = value;
+                continueYear = value;
             }
         }
 
-        public int Renzoku
+        public int Continued
         {
             get
             {
-                return renzoku;
+                return continued;
             }
 
             set
             {
-                renzoku = value;
+                continued = value;
             }
         }
 
-        public int Hiruyasumi
+        public int CrossLanchTime
         {
             get
             {
-                return hiruyasumi;
+                return crossLanchTime;
             }
 
             set
             {
-                hiruyasumi = value;
+                crossLanchTime = value;
             }
         }
 
@@ -130,16 +130,16 @@ namespace TimeTableProblem
             }
         }
 
-        public int Six
+        public int SixthCourse
         {
             get
             {
-                return six;
+                return sixthCourse;
             }
 
             set
             {
-                six = value;
+                sixthCourse = value;
             }
         }
 

@@ -48,7 +48,7 @@ namespace TimeTableProblem
                 DeterminedCourse tmp = new DeterminedCourse();
                 tmp.From(courseInfos[i]);
                 var tmp2 = this[i];
-                tmp.gakki = tmp2.gakki;
+                tmp.semester = tmp2.semester;
                 tmp.koma = tmp2.koma;
                 tmp.day = tmp2.day;
                 ll.Add(tmp);
@@ -265,7 +265,7 @@ namespace TimeTableProblem
                 Info.grade += subCompilsoryCourseVio.Count();
             }
 
-            var subContinueCourse = courseInfos.Subjects.Where(c => c.continue_gakki == 1);
+            var subContinueCourse = courseInfos.Subjects.Where(c => c.continue_semester == 1);
             foreach (var item in subContinueCourse)
             {
                 int cnt = courseInfos.Count;
@@ -276,24 +276,24 @@ namespace TimeTableProblem
                     {
                         var info1 = this[item.index];
                         var info2 = this[setting.index];
-                        if (info1.gakki == info2.gakki || info1.day != info2.day || info1.koma != info2.koma)
+                        if (info1.semester == info2.semester || info1.day != info2.day || info1.koma != info2.koma)
                         {
-                            Info.tuunenn++;
+                            Info.continueYear++;
                         }
                         if (item.length > 1)
                         {
-                            if (info1.gakki != info2.gakki || info1.day != info2.day ||
-    (info1.koma != info2.koma && Math.Abs(info1.koma - info2.koma) != 1)) Info.renzoku++;
+                            if (info1.semester != info2.semester || info1.day != info2.day ||
+    (info1.koma != info2.koma && Math.Abs(info1.koma - info2.koma) != 1)) Info.continued++;
                             else if (info1.koma == 2 && info2.koma == 3 || info1.koma == 3 && info2.koma == 2)
                             {
-                                Info.hiruyasumi++;
+                                Info.crossLanchTime++;
                             }
                         }
                     }
                 }
             }
 
-            Info.six = this.Where(c => c.koma == 6).Count();
+            Info.sixthCourse = this.Where(c => c.koma == 6).Count();
 
             Dictionary<int, int> dic = new Dictionary<int, int>();
             foreach (var item in subCompilsoryCourse)
@@ -389,9 +389,9 @@ namespace TimeTableProblem
             var c = this[info.index];
             if (info.grade < 3)
             {
-                return info.grade * 1000 + c.gakki * 10 + c.day;
+                return info.grade * 1000 + c.semester * 10 + c.day;
             }
-            return info.grade * 1000 + info.senkou * 100 + c.gakki * 10 + c.day;
+            return info.grade * 1000 + info.profession * 100 + c.semester * 10 + c.day;
         }
         //public void SetRandomPositionInEmpty(int index)
         //{
@@ -453,7 +453,7 @@ namespace TimeTableProblem
             return -1;
         }
 
-        public bool InitRandomPositionInEmpty(int index, int gakki = -1)
+        public bool InitRandomPositionInEmpty(int index, int semester = -1)
         {
             if (index < DeterminedCourseNum) return false;
             var setting = this[index];
@@ -467,9 +467,9 @@ namespace TimeTableProblem
             }
             int idIndex = g_r.Next(0, emptyPlace.Count);
             int newposition = 0;
-            var p = info.length == 2 ? emptyPlace.Where((r) => ((CourseSetting.getgakki(r) == gakki) || gakki == -1) &&
+            var p = info.length == 2 ? emptyPlace.Where((r) => ((CourseSetting.getsemester(r) == semester) || semester == -1) &&
             _ContainsNearPosition(emptyPlace, r)).ToList() :
-                emptyPlace.Where((r) => CourseSetting.getgakki(r) == gakki || gakki == -1).ToList();
+                emptyPlace.Where((r) => CourseSetting.getsemester(r) == semester || semester == -1).ToList();
             if (p.Count == 0)
             {
                 return false;
@@ -578,7 +578,7 @@ namespace TimeTableProblem
             {
                 lock (g_r)
                 {
-                    mC = g_r.Next(0, 30) + (this[index].gakki - 1) * 30;
+                    mC = g_r.Next(0, 30) + (this[index].semester - 1) * 30;
                 }
                 
             } while (IsDeterminedPosition(mC, courseInfos[index].PlaceID));

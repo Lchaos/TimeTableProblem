@@ -38,7 +38,7 @@ namespace TimeTableProblem
                 settings.refreshEmptyPlace();
                 var Group = from g in from r in info.Subjects
                                       select new { info = r, index = info.IndexOf(r) }
-                            group g by g.info.@group.Substring(0, g.info.@group.Length - 1) + g.info.senkou + g.info.grade;
+                            group g by g.info.@group.Substring(0, g.info.@group.Length - 1) + g.info.profession + g.info.grade;
                 foreach (var grp in Group)
                 {
                     var tmpgrp = grp.ToList();

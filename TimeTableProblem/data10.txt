@@ -1,4 +1,4 @@
-Name,Group,Code,Grade,Length,Compilsory,Senkou,Continue_gakki,Lecture,Experiment,Computer_room,Teacher_code
+Name,Group,Code,Grade,Length,Compilsory,profession,Continue_semester,Lecture,Experiment,Computer_room,Teacher_code
 解析学Ⅰ,解析学1,10314,1,2,1,0,1,1,0,0,0001
 解析学Ⅰ,解析学1,10324,1,2,1,0,1,1,0,0,0001
 解析学Ⅱ,解析学2,10414,1,2,1,0,1,1,0,0,0001

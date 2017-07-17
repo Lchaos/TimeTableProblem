@@ -8,21 +8,21 @@ namespace TimeTableProblem
 {
     public class CourseSetting
     {
-        public int gakki;
+        public int semester;
         public int day;
         public int koma;
         public int index;
 
         public void Set(DeterminedCourse course)
         {
-            gakki = course.gakki;
+            semester = course.semester;
             day = course.day;
             koma = course.koma;
         }
 
         public int ToId()
         {
-            return (gakki - 1) * 30 + (day - 1) * 6 + koma - 1;
+            return (semester - 1) * 30 + (day - 1) * 6 + koma - 1;
         }
         public void FromId(int index)
         {
@@ -30,7 +30,7 @@ namespace TimeTableProblem
             {
                 return;
             }
-            gakki = index / 30 + 1;
+            semester = index / 30 + 1;
             day = index % 30 / 6 + 1;
             koma = index % 6 + 1;
         }
@@ -44,7 +44,7 @@ namespace TimeTableProblem
         {
             return index % 30 / 6 + 1;
         }
-        public static int getgakki(int index)
+        public static int getsemester(int index)
         {
             return index / 30 + 1;
         }
@@ -52,19 +52,19 @@ namespace TimeTableProblem
 
         public void Set(CourseSetting setting)
         {
-            this.gakki = setting.gakki;
+            this.semester = setting.semester;
             this.day = setting.day;
             this.koma = setting.koma;
         }
         public void Exchange(CourseSetting setting)
         {
-            int tmpgakki = setting.gakki;
+            int tmpsemester = setting.semester;
             int tmpday = setting.day;
             int tmpkoma = setting.koma;
-            setting.gakki = this.gakki;
+            setting.semester = this.semester;
             setting.day = this.day;
             setting.koma = this.koma;
-            this.gakki = tmpgakki;
+            this.semester = tmpsemester;
             this.day = tmpday;
             this.koma = tmpkoma;
         }

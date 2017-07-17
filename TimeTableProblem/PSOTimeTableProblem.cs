@@ -170,7 +170,7 @@ namespace TimeTableProblem
                                 break;
                             }
                         }
-                        tmp.preHammingDistance =usenorm? 0: HammingDistance(tmp.Solution, preBirdSolution);
+                        tmp.preHammingDistance =usenorm?  HammingDistance(tmp.Solution, preBirdSolution):0;
                         tmp.Solution.CountVioInfo();
                         lock (this)
                         {
