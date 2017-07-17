@@ -37,6 +37,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=3.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MathNet.Numerics.3.20.0\lib\net40\MathNet.Numerics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ServiceStack.Text, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
       <Private>True</Private>
@@ -58,8 +62,10 @@
     <Compile Include="Course.cs" />
     <Compile Include="CourseCollection.cs" />
     <Compile Include="CoursePosition.cs" />
+    <Compile Include="CSTimeTableProblem.cs" />
     <Compile Include="ESTimeTableProblem.cs" />
     <Compile Include="HardVioliationAdapter.cs" />
+    <Compile Include="LevyFlight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSOTimeTableProblem.cs" />

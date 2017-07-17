@@ -28,7 +28,7 @@ namespace TimeTableProblem
             public double Fitness = 0;
         }
 
-        public void init()
+        public override void init()
         {
             Birds = new Bird[Size];
             for (int i = 0; i < Size; i++)
@@ -93,7 +93,7 @@ namespace TimeTableProblem
             return 1.0 - (double)ham / (double)subnum;
         }
 
-        public  void DoJob()
+        public override void DoJob()
         {
 
             double[] rate = new double[3];

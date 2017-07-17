@@ -18,7 +18,7 @@ namespace TimeTableProblem
         public int urType = 1;
         public CourseInfoCollection bestSol;
 
-        public void init()
+        public override void init()
         {
             m_rSolutions = new List<CourseInfoCollection>();
             m_uSolutions = new List<CourseInfoCollection>();
@@ -37,7 +37,7 @@ namespace TimeTableProblem
             }
         }
 
-        public void DoJob()
+        public override void DoJob()
         {
             int mC = 0;
             for (int z = 0; z < maxLoop; z++)

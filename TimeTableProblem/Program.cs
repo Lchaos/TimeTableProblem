@@ -20,13 +20,13 @@ namespace TimeTableProblem
             }
             else
             {
-                PSOTimeTableProblem es = new PSOTimeTableProblem();
-                es.Size = 200;
-                es.MaxLoop = 5000;
-                es.c1 = 5;
-                es.c2 = 2;
-                es.w = 0.05;
-                es.usenorm = true;
+                CSTimeTableProblem es = new CSTimeTableProblem();
+                //es.Size = 200;
+                //es.MaxLoop = 5000;
+                //es.c1 = 5;
+                //es.c2 = 2;
+                //es.w = 0.05;
+                //es.usenorm = true;
 
                 es.init();
                 es.DoJob();

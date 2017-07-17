@@ -22,5 +22,14 @@ namespace TimeTableProblem
             subnum = infos.Subjects.Count;
             decnum = infos.DeterminedCourses.Count;
         }
+
+        public virtual void DoJob()
+        {
+        }
+
+        public virtual void init()
+        {
+
+        }
     }
 }
