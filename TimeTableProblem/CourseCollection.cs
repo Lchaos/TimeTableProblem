@@ -150,7 +150,7 @@ namespace TimeTableProblem
             var setting2 = this[index2];
             var info1 = courseInfos[index1];
             var info2 = courseInfos[index2];
-            if (info1.grade != info2.grade) return false;
+            if (info1.PlaceID != info2.PlaceID) return false;
 
             if (info2.length == info1.length)
             {

@@ -180,7 +180,11 @@ namespace TimeTableProblem
 
             public void sendEgg()
             {
-                long numChangedNodes = lv.next(1, solution.courseInfos.Subjects.Count);
+                long numChangedNodes;
+                lock (g_r)
+                {
+                    numChangedNodes = lv.next(1, solution.courseInfos.Subjects.Count);
+                }
                 Backup();
                 for (int i = 0; i < numChangedNodes; i++)
                 {
