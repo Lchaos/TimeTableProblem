@@ -62,7 +62,6 @@
     <Compile Include="Course.cs" />
     <Compile Include="CourseCollection.cs" />
     <Compile Include="CoursePosition.cs" />
-    <Compile Include="CSTimeTableProblem.cs" />
     <Compile Include="ESTimeTableProblem.cs" />
     <Compile Include="HardVioliationAdapter.cs" />
     <Compile Include="LevyFlight.cs" />
