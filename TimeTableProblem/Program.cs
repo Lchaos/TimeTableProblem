@@ -20,7 +20,7 @@ namespace TimeTableProblem
             }
             else
             {
-                CSTimeTableProblem es = new CSTimeTableProblem();
+                PSOTimeTableProblem es = new PSOTimeTableProblem();
                 //es.Size = 200;
                 //es.MaxLoop = 5000;
                 //es.c1 = 5;
@@ -30,6 +30,7 @@ namespace TimeTableProblem
 
                 es.init();
                 es.DoJob();
+                //System.IO.File.WriteAllText("test4.json", es.Nests.OrderBy(r => r.solution.Info.Violation).First().solution.ToJson());
             }
 
         }

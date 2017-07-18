@@ -571,6 +571,40 @@ namespace TimeTableProblem
 
         }
 
+        public static int[] g_DayKomaIDS = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 };
+
+        public void SetPositionLVRandom(LevyFilght lv, int index, bool exchangable = true)
+        {
+            int mC;
+            var emptyplace = getEmptyPlace(courseInfos[index]);
+            var orgid = this[index].ToId();
+            var Place = g_DayKomaIDS.OrderBy(r =>  emptyplace.Contains(r)? 0:1 + (Math.Max(r, orgid%30)- Math.Min(r, orgid % 30)) *2  
+            ).ToList();
+            //var sameSemster = emptyplace.Where(r => CourseSetting.getsemester(r) == this[index].semester).OrderBy(r=>Math.Abs( r-this[index].ToId())).ToList();
+            //if (sameSemster.Count == 0)
+            {
+           //     SetPositionRandom(index);
+            }
+            //else
+            {
+                do
+                {
+
+                    lock (g_r)
+                    {
+
+                        int lvr = (int)lv.next(1, 29);
+                        //lvr = 2 * lvr - g_r.Next(1, 2);
+                        //int flag = g_r.NextDouble() < 0 ? -1 : 1;
+                        mC = Place[lvr];
+                    }
+
+                } while (IsDeterminedPosition(mC, courseInfos[index].PlaceID));
+                SetPosition(mC, index, exchangable);
+            }
+
+        }
+
         public void SetPositionRandom(int index, bool exchangable = true)
         {
             int mC;
